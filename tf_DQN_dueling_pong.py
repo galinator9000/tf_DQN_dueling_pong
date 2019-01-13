@@ -182,10 +182,6 @@ for episode in range(max_episode):
 		# Apply action on simulation.
 		[agent1_next_state, agent2_next_state], [agent1_reward, agent2_reward], done, info = env.step([agent1_action, agent2_action])
 
-		# Penalize score if agent drops the pole (done = True) and it's not the end of the episode.
-		# if done and (timestep+1 < int(max_timestep)):
-		# 	reward = -10
-
 		episode_reward[0] = episode_reward[0] + agent1_reward
 		episode_reward[1] = episode_reward[1] + agent2_reward
 
@@ -204,7 +200,7 @@ for episode in range(max_episode):
 		# Experience replay (training).
 		# Waits until experiences accumulate much as batch size.
 
-		# Agent1
+		# Train Agent1
 		if len(agent1_Memory) > batch_size:
 			mini_batch = random.sample(agent1_Memory, batch_size)
 			
@@ -239,7 +235,7 @@ for episode in range(max_episode):
 				feed_dict=a1_feed
 			)
 
-		# Agent2
+		# Train Agent2
 		if len(agent2_Memory) > batch_size:
 			mini_batch = random.sample(agent2_Memory, batch_size)
 			
