@@ -286,6 +286,3 @@ class PyPong:
 
 	def render(self):
 		pygame.display.flip()
-
-if __name__ == '__main__':
-	env = PyPong()
