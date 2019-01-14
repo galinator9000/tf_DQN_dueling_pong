@@ -9,8 +9,8 @@ from collections import deque
 from PyPong import PyPong
 
 weight_path = "model/dqn_cartpole_weights"
-load_weights = True
-skip_training = True
+load_weights = False
+skip_training = False
 
 # Parameters.
 alpha = 0.0001		# Learning rate.
@@ -22,7 +22,7 @@ epsilon_min = 0.01
 epsilon_decay = 0.999
 
 batch_size = 64
-max_episode = 250
+max_episode = 500
 max_timestep = 250.0
 memory_max_size = 1000000
 last_reward_record_count = 100
