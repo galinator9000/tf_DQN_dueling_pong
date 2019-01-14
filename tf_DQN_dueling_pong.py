@@ -9,8 +9,8 @@ from collections import deque
 from PyPong import PyPong
 
 weight_path = "model/dqn_cartpole_weights"
-load_weights = False
-skip_training = False
+load_weights = True
+skip_training = True
 
 # Parameters.
 alpha = 0.0001		# Learning rate.
