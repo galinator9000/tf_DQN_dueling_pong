@@ -34,7 +34,6 @@ height = 480
 class Ball:
 	base_velocity = 3.00
 	def __init__(self,x,y,degrees):
-		self.last_scorer = 0		# 1 Red, 2 Blue
 		self.position=[x,y]
 		self.direction=degrees
 		self.radius=7
@@ -118,7 +117,8 @@ class Ball:
 			# And Red gets punishment.
 			paddle1.reward -= GOAL_PUNISHMENT
 
-			self.last_scorer = 2
+			paddle2.goal_score += 1
+
 			paddle1.head = paddle1.start_pos
 			paddle2.head = paddle2.start_pos
 
@@ -132,7 +132,7 @@ class Ball:
 			# And Blue gets punishment.
 			paddle2.reward -= GOAL_PUNISHMENT
 
-			self.last_scorer = 1
+			paddle1.goal_score += 1
 
 			paddle1.head = paddle1.start_pos
 			paddle2.head = paddle2.start_pos
@@ -169,6 +169,7 @@ class Paddle:
 		self.thick=14
 		self.color=_color
 		self.reward = 0.0
+		self.goal_score = 0
 
 	def top(self):
 		return self.head
@@ -199,6 +200,7 @@ class Paddle:
 	def reset(self):
 		self.head = self.start_pos
 		self.reward = 0.0
+		self.goal_score = 0
 
 	def draw(self,screen):
 		pygame.draw.line(screen,self.color,[self.column,self.top()],[self.column,self.bottom()],self.thick)
@@ -271,7 +273,9 @@ class PyPong:
 		# Put the image of the text on the screen at 250x250
 		font = pygame.font.Font(None, 22)
 		fontScore = pygame.font.Font(None, 40)
-		self.screen.blit(font.render("PyPong by Beef",True,black), [self.size[0]-140,self.size[1]-30])
+		self.screen.blit(font.render("PyPong by Beef", True, black), [self.size[0]-140,self.size[1]-30])
+		self.screen.blit(fontScore.render(str(self.player1.goal_score), True, red), [self.size[0]/8, self.size[1]/16])
+		self.screen.blit(fontScore.render(str(self.player2.goal_score), True, blue), [self.size[0]-(self.size[0]/8), self.size[1]/16])
 
 		player1_reward = self.player1.reward
 		player2_reward = self.player2.reward
