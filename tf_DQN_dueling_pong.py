@@ -8,7 +8,7 @@ from collections import deque
 
 from PyPong import PyPong
 
-weight_path = "model/dqn_cartpole_weights"
+weight_path = "model/dqn_pong_weights"
 load_weights = True
 skip_training = True
 
