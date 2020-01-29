@@ -1,2 +1,2 @@
-model_checkpoint_path: "dqn_cartpole_weights"
-all_model_checkpoint_paths: "dqn_cartpole_weights"
+model_checkpoint_path: "dqn_pong_weights"
+all_model_checkpoint_paths: "dqn_pong_weights"

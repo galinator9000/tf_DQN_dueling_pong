@@ -1,6 +1,5 @@
 # Creator bearpaw7
-# https://github.com/bearpaw7/PyPong
-# Edited version for dueling AI.
+# Edited version by fmehmetun for dueling AI.
 
 '''
 Created on Aug 30, 2012
@@ -21,7 +20,7 @@ white = (255, 255, 255)
 blue =  (0, 0, 255)
 red =   (255, 0, 0)
 
-MOVEMENT_SPEED = 5
+MOVEMENT_SPEED = 6
 
 BALL_SAVING_REWARD = 5.0
 BALL_DISTANCE_REWARD = 10.0
@@ -32,7 +31,7 @@ width = 640
 height = 480
 
 class Ball:
-	base_velocity = 3.00
+	base_velocity = 5.00
 	def __init__(self,x,y,degrees):
 		self.position=[x,y]
 		self.direction=degrees
